@@ -236,12 +236,14 @@ int main()
                             else
                                 socket.send(packet);
                             if (state != end)
-                                state = wait;
-                            if (++markedBoxes == 9)
                             {
-                                endText.setString("TIE!");
-                                endText.setFillColor(sf::Color::Blue);
-                                state = end;
+                                state = wait;
+                                if (++markedBoxes == 9)
+                                {
+                                    endText.setString("TIE!");
+                                    endText.setFillColor(sf::Color::Blue);
+                                    state = end;
+                                }
                             }
                         }
                     }
@@ -286,12 +288,14 @@ int main()
                         boxes[i]->mark(oponentMarking);
                 }
                 if (state != end)
-                    state = play;
-                if (++markedBoxes == 9)
                 {
-                    endText.setString("TIE!");
-                    endText.setFillColor(sf::Color::Blue);
-                    state = end;
+                    state = play;
+                    if (++markedBoxes == 9)
+                    {
+                        endText.setString("TIE!");
+                        endText.setFillColor(sf::Color::Blue);
+                        state = end;
+                    }
                 }
             }
             window.clear();
